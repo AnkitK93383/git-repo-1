@@ -1,0 +1,221 @@
+Authenticating with public key "Imported-Openssh-Key"
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 • MobaXterm Personal Edition v26.3 •                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ⮞ SSH session to ec2-user@52.90.224.130                              │
+    │   • Direct SSH      :  ✓                                             │
+    │   • SSH compression :  ✓                                             │
+    │   • SSH-browser     :  ✓                                             │
+    │   • X11-forwarding  :  ✗  (disabled or not supported by server)      │
+    │                                                                      │
+    │ ⮞ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+Last login: Tue Apr 21 03:39:04 2026 from 18.206.107.28
+[ec2-user@ip-172-31-44-134 ~]$ sudo yum update -y
+Amazon Linux 2023 Kernel Livepatch repository                                                                                 152 kB/s |  31 kB     00:00
+sudo yum install python3 -yDependencies resolved.
+Nothing to do.
+Complete!
+[ec2-user@ip-172-31-44-134 ~]$ sudo yum install python3 -y
+Last metadata expiration check: 0:00:25 ago on Tue Apr 21 03:52:02 2026.
+Package python3-3.9.25-1.amzn2023.0.4.x86_64 is already installed.
+Dependencies resolved.
+Nothing to do.
+Complete!
+[ec2-user@ip-172-31-44-134 ~]$ nano etl_script.py
+[ec2-user@ip-172-31-44-134 ~]$ pip3 install pandas boto3
+-bash: pip3: command not found
+[ec2-user@ip-172-31-44-134 ~]$ nano etl_script.py
+[ec2-user@ip-172-31-44-134 ~]$ python3 etl_script.py
+Traceback (most recent call last):
+  File "/home/ec2-user/etl_script.py", line 1, in <module>
+    import boto3
+ModuleNotFoundError: No module named 'boto3'
+[ec2-user@ip-172-31-44-134 ~]$ ^C
+[ec2-user@ip-172-31-44-134 ~]$ sudo yum install python3-pip -y
+Last metadata expiration check: 0:02:38 ago on Tue Apr 21 03:52:02 2026.
+Dependencies resolved.
+==============================================================================================================================================================
+ Package                                 Architecture                  Version                                       Repository                          Size
+==============================================================================================================================================================
+Installing:
+ python3-pip                             noarch                        21.3.1-2.amzn2023.0.16                        amazonlinux                        1.8 M
+Installing weak dependencies:
+ libxcrypt-compat                        x86_64                        4.4.33-7.amzn2023                             amazonlinux                         92 k
+
+Transaction Summary
+==============================================================================================================================================================
+Install  2 Packages
+
+Total download size: 1.9 M
+Installed size: 11 M
+Downloading Packages:
+(1/2): libxcrypt-compat-4.4.33-7.amzn2023.x86_64.rpm                                                                          2.3 MB/s |  92 kB     00:00
+(2/2): python3-pip-21.3.1-2.amzn2023.0.16.noarch.rpm                                                                           32 MB/s | 1.8 MB     00:00
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                          19 MB/s | 1.9 MB     00:00
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                                                                                      1/1
+  Installing       : libxcrypt-compat-4.4.33-7.amzn2023.x86_64                                                                                            1/2
+  Installing       : python3-pip-21.3.1-2.amzn2023.0.16.noarch                                                                                            2/2
+  Running scriptlet: python3-pip-21.3.1-2.amzn2023.0.16.noarch                                                                                            2/2
+  Verifying        : libxcrypt-compat-4.4.33-7.amzn2023.x86_64                                                                                            1/2
+  Verifying        : python3-pip-21.3.1-2.amzn2023.0.16.noarch                                                                                            2/2
+
+Installed:
+  libxcrypt-compat-4.4.33-7.amzn2023.x86_64                                     python3-pip-21.3.1-2.amzn2023.0.16.noarch
+
+Complete!
+[ec2-user@ip-172-31-44-134 ~]$ pip3 --version
+pip 21.3.1 from /usr/lib/python3.9/site-packages/pip (python 3.9)
+[ec2-user@ip-172-31-44-134 ~]$ pip3 install pandas boto3
+Defaulting to user installation because normal site-packages is not writeable
+Collecting pandas
+  Downloading pandas-2.3.3-cp39-cp39-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.8 MB)
+     |████████████████████████████████| 12.8 MB 353 kB/s
+Collecting boto3
+  Downloading boto3-1.42.92-py3-none-any.whl (140 kB)
+     |████████████████████████████████| 140 kB 73.5 MB/s
+Requirement already satisfied: pytz>=2020.1 in /usr/lib/python3.9/site-packages (from pandas) (2022.7.1)
+Collecting numpy>=1.22.4
+  Downloading numpy-2.0.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (19.5 MB)
+     |████████████████████████████████| 19.5 MB 359 kB/s
+Collecting python-dateutil>=2.8.2
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+     |████████████████████████████████| 229 kB 75.3 MB/s
+Collecting tzdata>=2022.7
+  Downloading tzdata-2026.1-py2.py3-none-any.whl (348 kB)
+     |████████████████████████████████| 348 kB 75.6 MB/s
+Collecting botocore<1.43.0,>=1.42.92
+  Downloading botocore-1.42.92-py3-none-any.whl (14.9 MB)
+     |████████████████████████████████| 14.9 MB 72.5 MB/s
+Collecting s3transfer<0.17.0,>=0.16.0
+  Downloading s3transfer-0.16.0-py3-none-any.whl (86 kB)
+     |████████████████████████████████| 86 kB 9.1 MB/s
+Requirement already satisfied: jmespath<2.0.0,>=0.7.1 in /usr/lib/python3.9/site-packages (from boto3) (0.10.0)
+Requirement already satisfied: urllib3<1.27,>=1.25.4 in /usr/lib/python3.9/site-packages (from botocore<1.43.0,>=1.42.92->boto3) (1.25.10)
+Requirement already satisfied: six>=1.5 in /usr/lib/python3.9/site-packages (from python-dateutil>=2.8.2->pandas) (1.15.0)
+Installing collected packages: python-dateutil, botocore, tzdata, s3transfer, numpy, pandas, boto3
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+awscli 2.33.15 requires python-dateutil<=2.9.0,>=2.1, but you have python-dateutil 2.9.0.post0 which is incompatible.
+Successfully installed boto3-1.42.92 botocore-1.42.92 numpy-2.0.2 pandas-2.3.3 python-dateutil-2.9.0.post0 s3transfer-0.16.0 tzdata-2026.1
+[ec2-user@ip-172-31-44-134 ~]$ python3 etl_script.py
+/home/ec2-user/.local/lib/python3.9/site-packages/boto3/compat.py:89: PythonDeprecationWarning: Boto3 will no longer support Python 3.9 starting April 29, 2026. To continue receiving service updates, bug fixes, and security updates please upgrade to Python 3.10 or later. More information can be found here: https://aws.amazon.com/blogs/developer/python-support-policy-updates-for-aws-sdks-and-tools/
+  warnings.warn(warning, PythonDeprecationWarning)
+Traceback (most recent call last):
+  File "/home/ec2-user/etl_script.py", line 13, in <module>
+    s3.download_file(bucket_name, input_file, 'sales.csv')
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/boto3/s3/inject.py", line 223, in download_file
+    return transfer.download_file(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/boto3/s3/transfer.py", line 484, in download_file
+    future.result()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/s3transfer/futures.py", line 111, in result
+    return self._coordinator.result()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/s3transfer/futures.py", line 287, in result
+    raise self._exception
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/s3transfer/tasks.py", line 272, in _main
+    self._submit(transfer_future=transfer_future, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/s3transfer/download.py", line 359, in _submit
+    response = client.head_object(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/botocore/client.py", line 606, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/botocore/client.py", line 1094, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (404) when calling the HeadObject operation: Not Found
+[ec2-user@ip-172-31-44-134 ~]$ ^C
+[ec2-user@ip-172-31-44-134 ~]$ nano etl_script.py
+[ec2-user@ip-172-31-44-134 ~]$ python3 etl_script.py
+/home/ec2-user/.local/lib/python3.9/site-packages/boto3/compat.py:89: PythonDeprecationWarning: Boto3 will no longer support Python 3.9 starting April 29, 2026. To continue receiving service updates, bug fixes, and security updates please upgrade to Python 3.10 or later. More information can be found here: https://aws.amazon.com/blogs/developer/python-support-policy-updates-for-aws-sdks-and-tools/
+  warnings.warn(warning, PythonDeprecationWarning)
+Traceback (most recent call last):
+  File "/home/ec2-user/etl_script.py", line 13, in <module>
+    s3.download_file(bucket_name, input_file, 'sales_file.csv')
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/boto3/s3/inject.py", line 223, in download_file
+    return transfer.download_file(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/boto3/s3/transfer.py", line 484, in download_file
+    future.result()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/s3transfer/futures.py", line 111, in result
+    return self._coordinator.result()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/s3transfer/futures.py", line 287, in result
+    raise self._exception
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/s3transfer/tasks.py", line 272, in _main
+    self._submit(transfer_future=transfer_future, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/s3transfer/download.py", line 359, in _submit
+    response = client.head_object(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/botocore/client.py", line 606, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/botocore/client.py", line 1094, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (404) when calling the HeadObject operation: Not Found
+[ec2-user@ip-172-31-44-134 ~]$ ^C
+[ec2-user@ip-172-31-44-134 ~]$ s3.download_file(bucket_name, input_file, 'sales_file.csv')
+-bash: syntax error near unexpected token `bucket_name,'
+[ec2-user@ip-172-31-44-134 ~]$ ^C
+[ec2-user@ip-172-31-44-134 ~]$ nano etl_script.py
+[ec2-user@ip-172-31-44-134 ~]$ python3 etl_script.py
+/home/ec2-user/.local/lib/python3.9/site-packages/boto3/compat.py:89: PythonDeprecationWarning: Boto3 will no longer support Python 3.9 starting April 29, 2026. To continue receiving service updates, bug fixes, and security updates please upgrade to Python 3.10 or later. More information can be found here: https://aws.amazon.com/blogs/developer/python-support-policy-updates-for-aws-sdks-and-tools/
+  warnings.warn(warning, PythonDeprecationWarning)
+Traceback (most recent call last):
+  File "/home/ec2-user/etl_script.py", line 13, in <module>
+    s3.download_file(bucket_name, input_file, 'sales_file.csv')
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/boto3/s3/inject.py", line 223, in download_file
+    return transfer.download_file(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/boto3/s3/transfer.py", line 484, in download_file
+    future.result()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/s3transfer/futures.py", line 111, in result
+    return self._coordinator.result()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/s3transfer/futures.py", line 287, in result
+    raise self._exception
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/s3transfer/tasks.py", line 272, in _main
+    self._submit(transfer_future=transfer_future, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/s3transfer/download.py", line 359, in _submit
+    response = client.head_object(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/botocore/client.py", line 606, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/botocore/client.py", line 1094, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (404) when calling the HeadObject operation: Not Found
+[ec2-user@ip-172-31-44-134 ~]$ ^C
+[ec2-user@ip-172-31-44-134 ~]$ aws s3 ls s3://student-etl-ankit/
+                           PRE output/
+2026-04-21 03:35:28       1437 Sales_file.csv
+[ec2-user@ip-172-31-44-134 ~]$ nano etl_script.py
+[ec2-user@ip-172-31-44-134 ~]$ python3 etl_script.py
+/home/ec2-user/.local/lib/python3.9/site-packages/boto3/compat.py:89: PythonDeprecationWarning: Boto3 will no longer support Python 3.9 starting April 29, 2026. To continue receiving service updates, bug fixes, and security updates please upgrade to Python 3.10 or later. More information can be found here: https://aws.amazon.com/blogs/developer/python-support-policy-updates-for-aws-sdks-and-tools/
+  warnings.warn(warning, PythonDeprecationWarning)
+Starting ETL process...
+Downloading file from S3...
+Reading CSV...
+Filtering records where amount > 1000...
+Saving filtered data...
+Uploading result to S3...
+✅ ETL process completed successfully!
+[ec2-user@ip-172-31-44-134 ~]$

@@ -1,0 +1,36 @@
+import boto3
+import pandas as pd
+
+# CONFIG
+bucket_name = "student-etl-ankit"
+input_file = "Sales_file.csv"   # exact name from S3
+local_input = "Sales_file.csv"
+local_output = "filtered_sales.csv"
+output_file = "output/filtered_sales.csv"
+
+# Create S3 client
+s3 = boto3.client('s3')
+
+print("Starting ETL process...")
+
+# Step 1: Download file from S3
+print("Downloading file from S3...")
+s3.download_file(bucket_name, input_file, local_input)
+
+# Step 2: Read CSV
+print("Reading CSV...")
+df = pd.read_csv(local_input)
+
+# Step 3: Filter data
+print("Filtering records where amount > 1000...")
+filtered_df = df[df['amount'] > 1000]
+
+# Step 4: Save locally
+print("Saving filtered data...")
+filtered_df.to_csv(local_output, index=False)
+
+# Step 5: Upload back to S3
+print("Uploading result to S3...")
+s3.upload_file(local_output, bucket_name, output_file)
+
+print("✅ ETL process completed successfully!")
